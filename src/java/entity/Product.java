@@ -3,68 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package entity;
 
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author Bakar M.M.R
  */
-@Entity
-@Table(name = "product", catalog = "web_project", schema = "")
-@NamedQueries({
-    @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p")})
 public class Product implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @EmbeddedId
+
     protected ProductPK productPK;
-    @Basic(optional = false)
-    @Column(name = "product_name")
+    
     private String productName;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "product_price")
+   
     private Float productPrice;
-    @Lob
-    @Column(name = "product_description")
+   
     private String productDescription;
-    @Column(name = "product_count")
-    private Integer productCount;
-    @Column(name = "product_img")
+ 
+    private int productCount;
+   
     private String productImg;
-    @Column(name = "product_quntityavailable")
-    private Integer productQuntityavailable;
-    @Column(name = "product_quntitysold")
-    private Integer productQuntitysold;
-    @Column(name = "product_lastmodify")
-    @Temporal(TemporalType.DATE)
+   
+    private int productQuntityavailable;
+  
+    private int productQuntitysold;
+
     private Date productLastmodify;
-    @Column(name = "product_options")
+
     private String productOptions;
-    @Column(name = "product_color")
+
     private String productColor;
-    @Column(name = "product_size")
+
     private String productSize;
-    @JoinColumn(name = "categories_idcategory", referencedColumnName = "idcategory", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+  
     private Categories categories;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+
     private Collection<CartProduct> cartProductCollection;
 
     public Product() {
@@ -115,11 +91,11 @@ public class Product implements Serializable {
         this.productDescription = productDescription;
     }
 
-    public Integer getProductCount() {
+    public int getProductCount() {
         return productCount;
     }
 
-    public void setProductCount(Integer productCount) {
+    public void setProductCount(int productCount) {
         this.productCount = productCount;
     }
 
@@ -131,19 +107,19 @@ public class Product implements Serializable {
         this.productImg = productImg;
     }
 
-    public Integer getProductQuntityavailable() {
+    public int getProductQuntityavailable() {
         return productQuntityavailable;
     }
 
-    public void setProductQuntityavailable(Integer productQuntityavailable) {
+    public void setProductQuntityavailable(int productQuntityavailable) {
         this.productQuntityavailable = productQuntityavailable;
     }
 
-    public Integer getProductQuntitysold() {
+    public int getProductQuntitysold() {
         return productQuntitysold;
     }
 
-    public void setProductQuntitysold(Integer productQuntitysold) {
+    public void setProductQuntitysold(int productQuntitysold) {
         this.productQuntitysold = productQuntitysold;
     }
 
@@ -195,29 +171,4 @@ public class Product implements Serializable {
         this.cartProductCollection = cartProductCollection;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (productPK != null ? productPK.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Product)) {
-            return false;
-        }
-        Product other = (Product) object;
-        if ((this.productPK == null && other.productPK != null) || (this.productPK != null && !this.productPK.equals(other.productPK))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "model.Product[ productPK=" + productPK + " ]";
-    }
-    
 }

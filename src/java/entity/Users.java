@@ -3,24 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package entity;
 
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
@@ -28,9 +15,8 @@ import javax.persistence.TemporalType;
  */
 
 public class Users implements Serializable {
-    private static final long serialVersionUID = 1L;
 
-    private Integer idusers;
+    private int idusers;
 
     private String userName;
 
@@ -43,7 +29,6 @@ public class Users implements Serializable {
     private String userMobile;
 
     private int userSsn;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
  
     private Float userCharge;
   
@@ -51,7 +36,7 @@ public class Users implements Serializable {
 
     private String userJob;
 
-    private Integer userZip;
+    private int userZip;
 
     private Collection<Payment> paymentCollection;
 
@@ -60,11 +45,11 @@ public class Users implements Serializable {
     public Users() {
     }
 
-    public Users(Integer idusers) {
+    public Users(int idusers) {
         this.idusers = idusers;
     }
 
-    public Users(Integer idusers, String userName, String userPassword, String userEmail, int userSsn, Date userRegdate) {
+    public Users(int idusers, String userName, String userPassword, String userEmail, int userSsn, Date userRegdate) {
         this.idusers = idusers;
         this.userName = userName;
         this.userPassword = userPassword;
@@ -73,11 +58,11 @@ public class Users implements Serializable {
         this.userRegdate = userRegdate;
     }
 
-    public Integer getIdusers() {
+    public int getIdusers() {
         return idusers;
     }
 
-    public void setIdusers(Integer idusers) {
+    public void setIdusers(int idusers) {
         this.idusers = idusers;
     }
 
@@ -153,11 +138,11 @@ public class Users implements Serializable {
         this.userJob = userJob;
     }
 
-    public Integer getUserZip() {
+    public int getUserZip() {
         return userZip;
     }
 
-    public void setUserZip(Integer userZip) {
+    public void setUserZip(int userZip) {
         this.userZip = userZip;
     }
 
@@ -176,30 +161,4 @@ public class Users implements Serializable {
     public void setCartProductCollection(Collection<CartProduct> cartProductCollection) {
         this.cartProductCollection = cartProductCollection;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idusers != null ? idusers.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Users)) {
-            return false;
-        }
-        Users other = (Users) object;
-        if ((this.idusers == null && other.idusers != null) || (this.idusers != null && !this.idusers.equals(other.idusers))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "model.Users[ idusers=" + idusers + " ]";
-    }
-    
 }
