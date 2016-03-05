@@ -6,7 +6,6 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
  * @author Bakar M.M.R
  */
 
-public class Users implements Serializable {
+public class Users {
 
     private int idusers;
 
@@ -44,19 +43,6 @@ public class Users implements Serializable {
     private List<CartProduct> cartProductCollection;
 
     public Users() {
-    }
-
-    public Users(int idusers) {
-        this.idusers = idusers;
-    }
-
-    public Users(int idusers, String userName, String userPassword, String userEmail, int userSsn, Date userRegdate) {
-        this.idusers = idusers;
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userEmail = userEmail;
-        this.userSsn = userSsn;
-        this.userRegdate = userRegdate;
     }
 
     public int getIdusers() {
