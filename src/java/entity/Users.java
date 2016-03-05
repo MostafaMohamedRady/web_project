@@ -8,6 +8,7 @@ package entity;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -38,9 +39,9 @@ public class Users implements Serializable {
 
     private int userZip;
 
-    private Collection<Payment> paymentCollection;
+    private List<Payment> paymentCollection;
 
-    private Collection<CartProduct> cartProductCollection;
+    private List<CartProduct> cartProductCollection;
 
     public Users() {
     }
@@ -146,19 +147,20 @@ public class Users implements Serializable {
         this.userZip = userZip;
     }
 
-    public Collection<Payment> getPaymentCollection() {
+    public List<Payment> getPaymentCollection() {
         return paymentCollection;
     }
 
-    public void setPaymentCollection(Collection<Payment> paymentCollection) {
+    public void setPaymentCollection(List<Payment> paymentCollection) {
         this.paymentCollection = paymentCollection;
     }
 
-    public Collection<CartProduct> getCartProductCollection() {
+    public List<CartProduct> getCartProductCollection() {
         return cartProductCollection;
     }
 
-    public void setCartProductCollection(Collection<CartProduct> cartProductCollection) {
+    public void setCartProductCollection(List<CartProduct> cartProductCollection) {
         this.cartProductCollection = cartProductCollection;
     }
+
 }

@@ -29,16 +29,6 @@ public class CartProduct {
     public CartProduct() {
     }
 
-    public CartProduct(int idcartProduct) {
-        this.idcartProduct = idcartProduct;
-    }
-
-    public CartProduct(int idcartProduct, int cartProductMount, Date cartProductDate) {
-        this.idcartProduct = idcartProduct;
-        this.cartProductMount = cartProductMount;
-        this.cartProductDate = cartProductDate;
-    }
-
     public int getIdcartProduct() {
         return idcartProduct;
     }

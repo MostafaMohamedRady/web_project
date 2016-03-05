@@ -6,6 +6,7 @@
 package entity;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -14,12 +15,20 @@ import java.util.Collection;
 
 public class Categories {
     private static final long serialVersionUID = 1L;
+
+    public List<Product> getProductCollection() {
+        return productCollection;
+    }
+
+    public void setProductCollection(List<Product> productCollection) {
+        this.productCollection = productCollection;
+    }
    
     private int idcategory;
    
     private String categoryName;
   
-    private Collection<Product> productCollection;
+    private List<Product> productCollection;
 
     public Categories() {
     }
@@ -49,12 +58,5 @@ public class Categories {
         this.categoryName = categoryName;
     }
 
-    public Collection<Product> getProductCollection() {
-        return productCollection;
-    }
-
-    public void setProductCollection(Collection<Product> productCollection) {
-        this.productCollection = productCollection;
-    }
 
 }
