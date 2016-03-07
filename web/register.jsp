@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <!--A Design by W3layouts 
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -222,43 +228,45 @@ new UISearch(document.getElementById('sb-search'));
         <div class=" container">
             <div class=" register">
 
-                <form action="RegisterController" method="post"> 
+                
                     <div class="col-md-6 register-top-grid">
                         <h3>Personal infomation</h3>
                         <div>
                             <span>First Name</span>                       
-                            <input type="text" name="userName"> 
+                            <input type="text" name="userName" id="userName" onblur="checkName()" > 
+                            <font color="red" id="error_userName" ></font>
                         </div>
                         <div>
                             <span>Email Address</span>
-                            <input type="text" name="userEmail"> 
+                            <input type="text" name="userEmail" id="userEmail" onblur="checkEmail()" > 
+                            <font color="red" id="error_userEmail" ></font>
                         </div>
                         <div>
                             <span>SSN</span>
-                            <input type="number" name="userSsn">
+                            <input type="number" name="userSsn" id="userSsn">
                         </div>
                         <div>
                             <span>Charge</span>
-                            <input type="number" name="userCharge">
+                            <input type="number" name="userCharge" id="userCharge">
                         </div>
                         <a class="news-letter" href="#">
-                            <label class="checkbox"><input type="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
+                            <label class="checkbox"><input type="checkbox" checked="" ><i> </i>Sign Up for Newsletter</label>
                         </a>
                     </div>
                     <div class="col-md-6 register-bottom-grid">
                         <h3>Login information</h3>
                         <div>
                             <span>Password</span>
-                            <input type="password" name="userPassword">
+                            <input type="password" name="userPassword" id="userPassword" >
                         </div>
                         <div>
                             <span>Confirm Password</span>
-                            <input type="password">
+                            <input type="password" id="userPasswordConfirm" onblur="checkPassword()">
+                            <font color="red" id="error_userPassword" ></font>
                         </div>
                         
-
-                        <input type="submit" value="submit">
-
+                        <form action="RegisterController" method="post">
+                        <input type="submit" value="submit" id="submitLogin" onclick="return check()">
                     </div>
                     <div class="clearfix"> </div>
                 </form>
@@ -320,5 +328,51 @@ new UISearch(document.getElementById('sb-search'));
                 <p>© 2015 Mattress . All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
             </div>
         </div>
+        
+               <script type="text/javascript">
+               var flag_userName=0;
+               var flag_userEmail=0;
+               var flag_userSsn=0;
+               var flag_userCharge=0;
+               var flag_userPassword=0;
+               var flag_userPasswordConfirm=0;
+    function checkName()
+                {
+                    var v_name = document.getElementById("userName").value;
+                     if(v_name=="")
+                       document.getElementById("error_userName").innerHTML="You shoud enter your name";
+                     else fName=1;   
+                        
+                }
+                function checkEmail()
+                {
+                    var v_email = document.getElementById("userEmail").value;
+                       var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+                        if (!filter.test(userEmail.value)) {
+                        document.getElementById("error_userEmail").innerHTML="Please enter correct e-mail";
+                        email.focus;}
+                    else flag_userEmail=1;
+                }
+                function checkPassword(){
+                    var v_password = document.getElementById("userPassword").value;
+                    var v_passwordConfirm = document.getElementById("userPasswordConfirm").value;
+                    if(v_password != v_passwordConfirm)
+                         document.getElementById("error_userPassword").innerHTML="Not Matched";
+                }
+                function check()
+                {   
+                 if(fName==1 && fEmail==1 && fGender==1 && fTelephone==1 && fProduct==1){
+                        return true;
+                 }
+                 else {
+                     checkName();
+                     checkEmail();
+                     checkPassword();
+                     
+                  return false;
+                 }
+                }                       
+            </script>
     </body>
 </html>
