@@ -37,7 +37,7 @@ public class UsersDao implements DoaInterface<Users> {
             statment.setString(3, bean.getUserEmail());
             statment.setInt(4, bean.getUserSsn());
             statment.setFloat(5, bean.getUserCharge());
-            //statment.setDate(6, (Date) bean.getUserRegdate());
+            statment.setDate(6,  bean.getUserRegdate());
             check = statment.executeUpdate();
             
             System.out.println("insert"+check);
@@ -76,7 +76,7 @@ public class UsersDao implements DoaInterface<Users> {
     public int delete(Users bean) {
         int check = 0;
         try {
-            statment = DBconnect.getInstance().getconn().prepareStatement("delete from user where idusers=?");
+            statment = DBconnect.getInstance().getconn().prepareStatement("delete from users where idusers=?");
             statment.setInt(1, bean.getIdusers());
             check = statment.executeUpdate();
         } catch (SQLException ex) {
