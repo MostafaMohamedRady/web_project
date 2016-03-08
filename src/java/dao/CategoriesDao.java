@@ -5,44 +5,123 @@
  */
 package dao;
 
+import entity.Categories;
+import java.sql.PreparedStatement;
 import java.util.List;
+import db.DBconnect;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Bakar M.M.R
  */
-public class CategoriesDao implements DoaInterface<Object>{
+public class CategoriesDao implements DoaInterface<Categories>{
 
+    PreparedStatement statement;
+    Categories cat;
     @Override
-    public int insert(Object bean) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int insert(Categories bean) {
+        //cat = (Categories) bean;
+        int check=0;
+        try {
+            statement = DBconnect.getInstance().getconn().prepareStatement("insert into categories (idcategory, category_name) values(?,?)");
+            statement.setInt(1, bean.getIdcategory());
+            statement.setString(2, bean.getCategoryName());
+            check = statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoriesDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("category inserted " + check);
+        return check;
     }
 
     @Override
-    public int update(Object bean) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int update(Categories bean) {
+       int check=0;
+       //cat = (Categories) bean;    
+        try {
+            statement = DBconnect.getInstance().getconn().prepareStatement("update categories set "
+                    + "category_name = ? where idcategory = ?");
+            statement.setString(1, bean.getCategoryName());
+            statement.setInt(2, bean.getIdcategory());
+            check = statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoriesDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return check;
     }
 
     @Override
-    public int delete(Object bean) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int delete(Categories bean) {
+        int check = 0;
+        //cat = (Categories) bean;
+        try {
+            statement = DBconnect.getInstance().getconn().prepareStatement("delete from categories where idcategory = ?");
+            statement.setInt(1, bean.getIdcategory());
+            check = statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoriesDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return check;
     }
 
     @Override
-    public Object selectById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Categories selectById(int id) {
+        cat = new Categories();
+        try {
+            statement = DBconnect.getInstance().getconn().prepareStatement("select * from categories where idcategory = ?");
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next())
+            {
+               cat.setCategoryName(rs.getString("category_name"));
+               cat.setIdcategory(rs.getInt("idcategory"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoriesDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cat;
     }
 
     @Override
-    public Object selectByName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Categories selectByName(String name) {
+        cat = new Categories();
+        try {
+            statement = DBconnect.getInstance().getconn().prepareStatement("select * from categories where category_name = ?");
+            statement.setString(1, name);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next())
+            {
+               cat.setCategoryName(rs.getString("category_name"));
+               cat.setIdcategory(rs.getInt("idcategory"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoriesDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cat;
     }
 
 
     @Override
-    public List<Object> selectAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Categories> selectAll() {
+        ArrayList<Categories> cats = new ArrayList<>();
+        try {
+            statement = DBconnect.getInstance().getconn().prepareStatement("select * from categories");
+            ResultSet rs = statement.executeQuery();
+            while(rs.next())
+            {
+                Categories cat = new Categories();
+                cat.setIdcategory(rs.getInt("idcategory"));
+                cat.setCategoryName(rs.getString("category_name"));
+                cats.add(cat);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoriesDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cats;
     }
-
-  
 }

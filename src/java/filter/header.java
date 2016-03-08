@@ -50,11 +50,11 @@ public class header implements Filter {
             FilterChain chain)
             throws IOException, ServletException {
         
-   //     RequestDispatcher rd = request.getRequestDispatcher("header.jsp");
-   //     rd.include(request, response);
+        //RequestDispatcher rd = request.getRequestDispatcher("header.jsp");
+        //rd.include(request, response);
         chain.doFilter(request, response);
-    //    rd = request.getRequestDispatcher("footer.jsp");
-    //    rd.include(request, response);
+        //rd = request.getRequestDispatcher("footer.jsp");
+        //rd.include(request, response);
         
     }
 
