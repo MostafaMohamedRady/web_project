@@ -67,7 +67,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                         <div class="ca-r">
                             <div class="cart box_1">
-                                <a href="checkout.html">
+                                <a href="checkout.jsp">
                                     <h3> <div class="total">
                                             <span class="simpleCart_total"></span> </div>
                                         <img src="images/cart.png" alt=""/></h3>
@@ -84,27 +84,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="container">
                 <div class="head-top">
                     <div class="logo">
-                        <h1><a href="index.html">Mattress</a></h1>
+                        <h1><a href="index.jsp">Mattress</a></h1>
                     </div>
                     <div class=" h_menu4">
                         <ul class="memenu skyblue">
-                            <li><a class="color8" href="index.html">BED LINEN</a></li>	
+                            <li><a class="color8" href="index.jsp">BED LINEN</a></li>	
                             <li><a class="color1" href="#">CUSHIONS</a>
                                 <div class="mepanel">
                                     <div class="row">
                                         <div class="col1">
                                             <div class="h_nav">
                                                 <ul>
-                                                    <li><a href="products.html">Bedskirt</a></li>
-                                                    <li><a href="products.html">Blanket/Throw</a></li>
-                                                    <li><a href="products.html">Collection/Duvet</a></li>
-                                                    <li><a href="products.html">Comforter</a></li>
-                                                    <li><a href="products.html">Comforter Set</a></li>
-                                                    <li><a href="products.html">Decorative Pillow</a></li>
-                                                    <li><a href="products.html">Mattress Pad </a></li>
-                                                    <li><a href="products.html">Mattress Topper</a></li>
-                                                    <li><a href="products.html">Pillow</a></li>
-                                                    <li><a href="products.html">Pillow Protector</a></li>
+                                                    <li><a href="products.jsp">Bedskirt</a></li>
+                                                    <li><a href="products.jsp">Blanket/Throw</a></li>
+                                                    <li><a href="products.jsp">Collection/Duvet</a></li>
+                                                    <li><a href="products.jsp">Comforter</a></li>
+                                                    
+                                                </ul>	
+                                            </div>							
+                                        </div>
+                                        <div class="col1">
+                                            <div class="h_nav">
+                                                <ul>
+                                                     <li><a href="products.jsp">Bedskirt</a></li>
+                                                    <li><a href="products.jsp">Blanket/Throw</a></li>
+                                                    <li><a href="products.jsp">Collection/Duvet</a></li>
+                                                    <li><a href="products.jsp">Comforter</a></li>
 
                                                 </ul>	
                                             </div>							
@@ -112,33 +117,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <div class="col1">
                                             <div class="h_nav">
                                                 <ul>
-                                                    <li><a href="products.html">Alpaca</a></li>
-                                                    <li><a href="products.html">Cashmere</a></li>
-                                                    <li><a href="products.html">Cotton</a></li>
-                                                    <li><a href="products.html">Cotton Blend</a></li>
-                                                    <li><a href="products.html">Down</a></li>
-                                                    <li><a href="products.html">Down Alternative</a></li>
-                                                    <li><a href="products.html">Egyptian Cotton</a></li>
-                                                    <li><a href="products.html">Modal</a></li>
-                                                    <li><a href="products.html">Pima Cotton</a></li>
-                                                    <li><a href="products.html">Silk </a></li>
-
-                                                </ul>	
-                                            </div>							
-                                        </div>
-                                        <div class="col1">
-                                            <div class="h_nav">
-                                                <ul>
-                                                    <li><a href="products.html">Bedskirt</a></li>
-                                                    <li><a href="products.html">Blanket/Throw</a></li>
-                                                    <li><a href="products.html">Collection/Duvet</a></li>
-                                                    <li><a href="products.html">Comforter</a></li>
-                                                    <li><a href="products.html">Comforter Set</a></li>
-                                                    <li><a href="products.html">Decorative Pillow</a></li>
-                                                    <li><a href="products.html">Mattress Pad </a></li>
-                                                    <li><a href="products.html">Mattress Topper</a></li>
-                                                    <li><a href="products.html">Pillow</a></li>
-                                                    <li><a href="products.html">Pillow Protector</a></li>
+                                                     <li><a href="products.jsp">Bedskirt</a></li>
+                                                    <li><a href="products.jsp">Blanket/Throw</a></li>
+                                                    <li><a href="products.jsp">Collection/Duvet</a></li>
+                                                    <li><a href="products.jsp">Comforter</a></li>
                                                 </ul>	
                                             </div>												
                                         </div>
@@ -151,16 +133,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <div class="col1">
                                             <div class="h_nav">
                                                 <ul>
-                                                    <li><a href="products.html">Bedskirt</a></li>
-                                                    <li><a href="products.html">Blanket/Throw</a></li>
-                                                    <li><a href="products.html">Collection/Duvet</a></li>
-                                                    <li><a href="products.html">Comforter</a></li>
-                                                    <li><a href="products.html">Comforter Set</a></li>
-                                                    <li><a href="products.html">Decorative Pillow</a></li>
-                                                    <li><a href="products.html">Mattress Pad </a></li>
-                                                    <li><a href="products.html">Mattress Topper</a></li>
-                                                    <li><a href="products.html">Pillow</a></li>
-                                                    <li><a href="products.html">Pillow Protector</a></li>
+                                                     <li><a href="products.jsp">Bedskirt</a></li>
+                                                    <li><a href="products.jsp">Blanket/Throw</a></li>
+                                                    <li><a href="products.jsp">Collection/Duvet</a></li>
+                                                    <li><a href="products.jsp">Comforter</a></li>
 
                                                 </ul>	
                                             </div>								
@@ -168,16 +144,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <div class="col1">
                                             <div class="h_nav">
                                                 <ul>
-                                                    <li><a href="products.html">Alpaca</a></li>
-                                                    <li><a href="products.html">Cashmere</a></li>
-                                                    <li><a href="products.html">Cotton</a></li>
-                                                    <li><a href="products.html">Cotton Blend</a></li>
-                                                    <li><a href="products.html">Down</a></li>
-                                                    <li><a href="products.html">Down Alternative</a></li>
-                                                    <li><a href="products.html">Egyptian Cotton</a></li>
-                                                    <li><a href="products.html">Modal</a></li>
-                                                    <li><a href="products.html">Pima Cotton</a></li>
-                                                    <li><a href="products.html">Silk </a></li>
+                                                     <li><a href="products.jsp">Bedskirt</a></li>
+                                                    <li><a href="products.jsp">Blanket/Throw</a></li>
+                                                    <li><a href="products.jsp">Collection/Duvet</a></li>
+                                                    <li><a href="products.jsp">Comforter</a></li>
 
                                                 </ul>		
                                             </div>							
@@ -186,24 +156,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                             <div class="h_nav">
 
                                                 <ul>
-                                                    <li><a href="products.html">Bedskirt</a></li>
-                                                    <li><a href="products.html">Blanket/Throw</a></li>
-                                                    <li><a href="products.html">Collection/Duvet</a></li>
-                                                    <li><a href="products.html">Comforter</a></li>
-                                                    <li><a href="products.html">Comforter Set</a></li>
-                                                    <li><a href="products.html">Decorative Pillow</a></li>
-                                                    <li><a href="products.html">Mattress Pad </a></li>
-                                                    <li><a href="products.html">Mattress Topper</a></li>
-                                                    <li><a href="products.html">Pillow</a></li>
-                                                    <li><a href="products.html">Pillow Protector</a></li>
+                                                     <li><a href="products.jsp">Bedskirt</a></li>
+                                                    <li><a href="products.jsp">Blanket/Throw</a></li>
+                                                    <li><a href="products.jsp">Collection/Duvet</a></li>
+                                                    <li><a href="products.jsp">Comforter</a></li>
                                                 </ul>	
                                             </div>												
                                         </div>
                                     </div>
                                 </div>
                             </li>		
-                            <li><a class="color4" href="login.html">Login</a></li>				
-                            <li><a class="color6" href="contact.html">Contact</a></li>
+                            <li><a class="color4" href="login.jsp">Login</a></li>				
+                            <li><a class="color6" href="contact.jsp">Contact</a></li>
                         </ul> 
                     </div>
 
@@ -223,21 +187,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="account">
                 <div class="account-pass">
                     <div class="col-md-8 account-top">
-                        <form>
+                        <form action="LoginController" method="post">
 
                             <div> 	
                                 <span>Email</span>
-                                <input type="text"> 
+                                <input type="text" name="userEmail" id="userEmail" required> 
                             </div>
                             <div> 
                                 <span >Password</span>
-                                <input type="password">
+                                <input type="password" name="userPassword" id="userPassword" required>
                             </div>				
                             <input type="submit" value="Login"> 
                         </form>
                     </div>
                     <div class="col-md-4 left-account ">
-                        <a href="single.html"><img class="img-responsive " src="images/s1.jpg" alt=""></a>
+                        <a href="single.jsp"><img class="img-responsive " src="images/s1.jpg" alt=""></a>
                         <div class="five">
                             <h2>25% </h2><span>discount</span>
                         </div>
@@ -260,7 +224,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <ul class="nav-bottom">
                             <li><a href="#">How to order</a></li>
                             <li><a href="#">FAQ</a></li>
-                            <li><a href="contact.html">Location</a></li>
+                            <li><a href="contact.jsp">Location</a></li>
                             <li><a href="#">Shipping</a></li>
                             <li><a href="#">Membership</a></li>	
                         </ul>	

@@ -90,9 +90,9 @@ public class RegisterController extends HttpServlet {
         UsersDao userDao = new UsersDao();
         int insert = userDao.insert(user);
         if (insert > 0) {
-            response.sendRedirect("login.html");
+            response.sendRedirect("login.jsp");
         } else {
-            response.sendRedirect("index.html");
+            response.sendRedirect("index.jsp");
         }
 
     }

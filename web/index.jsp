@@ -1,7 +1,7 @@
 
 <html>
     <head>
-        <title>Mattress A Ecommerce Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+        <title>Musican Shop</title>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery.min.js"></script>
@@ -196,8 +196,8 @@
                                     </div>
                                 </div>
                             </li>
-                            <li><a class="color4" href="login.html">Login</a></li>				
-                            <li><a class="color6" href="contact.html">Contact</a></li>
+                            <li><a class="color4" href="login.jsp">Login</a></li>				
+                            <li><a class="color6" href="contact.jsp">Contact</a></li>
                         </ul> 
                     </div>
 

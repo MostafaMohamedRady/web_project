@@ -208,8 +208,8 @@ new UISearch(document.getElementById('sb-search'));
                                     </div>
                                 </div>
                             </li>		
-                            <li><a class="color4" href="login.html">Login</a></li>				
-                            <li><a class="color6" href="contact.html">Contact</a></li>	
+                            <li><a class="color4" href="login.jsp">Login</a></li>				
+                            <li><a class="color6" href="contact.jsp">Contact</a></li>	
                         </ul> 
                     </div>
 
@@ -227,8 +227,7 @@ new UISearch(document.getElementById('sb-search'));
         <!--content-->
         <div class=" container">
             <div class=" register">
-
-                
+                 <form action="RegisterController" method="post">
                     <div class="col-md-6 register-top-grid">
                         <h3>Personal infomation</h3>
                         <div>
@@ -265,7 +264,7 @@ new UISearch(document.getElementById('sb-search'));
                             <font color="red" id="error_userPassword" ></font>
                         </div>
                         
-                        <form action="RegisterController" method="post">
+                       
                         <input type="submit" value="submit" id="submitLogin" onclick="return check()">
                     </div>
                     <div class="clearfix"> </div>
