@@ -208,8 +208,8 @@ new UISearch(document.getElementById('sb-search'));
                                     </div>
                                 </div>
                             </li>		
-                            <li><a class="color4" href="login.html">Login</a></li>				
-                            <li><a class="color6" href="contact.html">Contact</a></li>	
+                            <li><a class="color4" href="login.jsp">Login</a></li>				
+                            <li><a class="color6" href="contact.jsp">Contact</a></li>	
                         </ul> 
                     </div>
 
@@ -227,8 +227,7 @@ new UISearch(document.getElementById('sb-search'));
         <!--content-->
         <div class=" container">
             <div class=" register">
-
-                
+                 <form action="RegisterController" method="post">
                     <div class="col-md-6 register-top-grid">
                         <h3>Personal infomation</h3>
                         <div>
@@ -238,16 +237,16 @@ new UISearch(document.getElementById('sb-search'));
                         </div>
                         <div>
                             <span>Email Address</span>
-                            <input type="text" name="userEmail" id="userEmail" onblur="checkEmail()" > 
+                            <input type="email" name="userEmail" id="userEmail" onblur="checkEmail()" > 
                             <font color="red" id="error_userEmail" ></font>
                         </div>
                         <div>
                             <span>SSN</span>
-                            <input type="number" name="userSsn" id="userSsn">
+                            <input type="text" name="userSsn" id="userSsn" required>
                         </div>
                         <div>
                             <span>Charge</span>
-                            <input type="number" name="userCharge" id="userCharge">
+                            <input type="text" name="userCharge" id="userCharge">
                         </div>
                         <a class="news-letter" href="#">
                             <label class="checkbox"><input type="checkbox" checked="" ><i> </i>Sign Up for Newsletter</label>
@@ -257,15 +256,15 @@ new UISearch(document.getElementById('sb-search'));
                         <h3>Login information</h3>
                         <div>
                             <span>Password</span>
-                            <input type="password" name="userPassword" id="userPassword" >
+                            <input type="password" name="userPassword" id="userPassword" required>
                         </div>
                         <div>
                             <span>Confirm Password</span>
-                            <input type="password" id="userPasswordConfirm" onblur="checkPassword()">
+                            <input type="password" id="userPasswordConfirm" onblur="checkPassword()" required>
                             <font color="red" id="error_userPassword" ></font>
                         </div>
                         
-                        <form action="RegisterController" method="post">
+                       
                         <input type="submit" value="submit" id="submitLogin" onclick="return check()">
                     </div>
                     <div class="clearfix"> </div>
@@ -325,11 +324,12 @@ new UISearch(document.getElementById('sb-search'));
                 </div>
             </div>
             <div class="footer-class">
-                <p>Â© 2015 Mattress . All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                <p>© 2015 Mattress . All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
             </div>
         </div>
         
                <script type="text/javascript">
+			   
                var flag_userName=0;
                var flag_userEmail=0;
                var flag_userSsn=0;

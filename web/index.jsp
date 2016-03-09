@@ -1,13 +1,7 @@
-<!--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE html>
+
 <html>
     <head>
-        <title>Mattress A Ecommerce Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+        <title>Musican Shop</title>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery.min.js"></script>
@@ -202,8 +196,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </div>
                             </li>
-                            <li><a class="color4" href="login.html">Login</a></li>				
-                            <li><a class="color6" href="contact.html">Contact</a></li>
+                            <li><a class="color4" href="login.jsp">Login</a></li>				
+                            <li><a class="color6" href="contact.jsp">Contact</a></li>
                         </ul> 
                     </div>
 
@@ -373,6 +367,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
             <!---->
         </div>
+
+
         <div class="footer">
             <div class="container">
                 <div class="footer-top-at">

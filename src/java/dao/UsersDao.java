@@ -143,5 +143,66 @@ public class UsersDao implements DoaInterface<Users> {
         }
         return userList;
     }
+    
+    public boolean chechMail(String mail)
+     {
+         boolean ch=false;
+         user=new Users();
+        try {
+            statment = DBconnect.getInstance().getconn().prepareStatement("select * from users where user_email=?");
+            statment.setString(1, mail);
+            ResultSet result = statment.executeQuery();
+            if (result.next()) {
+                user.setIdusers(result.getInt("idusers"));
+                user.setUserName(result.getString("user_name"));
+                user.setUserPassword(result.getString("user_password"));
+                user.setUserEmail(result.getString("user_email"));
+                user.setUserAddress(result.getString("user_address"));
+                user.setUserMobile(result.getString("user_mobile"));
+                user.setUserCharge(result.getFloat("user_charge"));
+                user.setUserRegdate(result.getDate("user_regdate"));
+                user.setUserJob(result.getString("user_job"));
+                user.setUserZip(result.getInt("user_zip"));
+                user.setUserSsn(result.getInt("user_ssn"));
+                
+                ch=true;
+            }
+            else
+            {
+                ch=false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+        return ch;         
+     }
 
+    public Users login(String mail,String pass)
+     {
+         user=new Users();
+        try {
+            statment = DBconnect.getInstance().getconn().prepareStatement("select * from users where user_email=? and user_password=?");
+            statment.setString(1, mail);
+            statment.setString(2, pass);
+            ResultSet result = statment.executeQuery();
+            if (result.next()) {
+                user.setIdusers(result.getInt("idusers"));
+                user.setUserName(result.getString("user_name"));
+                user.setUserPassword(result.getString("user_password"));
+                user.setUserEmail(result.getString("user_email"));
+                user.setUserAddress(result.getString("user_address"));
+                user.setUserMobile(result.getString("user_mobile"));
+                user.setUserCharge(result.getFloat("user_charge"));
+                user.setUserRegdate(result.getDate("user_regdate"));
+                user.setUserJob(result.getString("user_job"));
+                user.setUserZip(result.getInt("user_zip"));
+                user.setUserSsn(result.getInt("user_ssn"));               
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+        return user;         
+     }
 }
