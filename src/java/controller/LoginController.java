@@ -51,7 +51,7 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Users user=new Users();
+        Users user=null;
         String mail=request.getParameter("userEmail");
         String pass=request.getParameter("userPassword");
        
@@ -62,7 +62,7 @@ public class LoginController extends HttpServlet {
         user = userDao.login(mail, pass);
         if (user!=null) {
             HttpSession session=request.getSession(true);
-            session.setAttribute("user", user);
+            session.setAttribute("users", user);
             System.out.println(user.getUserEmail()+"/"+user.getUserName());
             response.sendRedirect("index.jsp");
         } else {
