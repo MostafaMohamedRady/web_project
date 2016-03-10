@@ -8,6 +8,7 @@ package entity;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -26,7 +27,7 @@ public class Payment implements Serializable {
     
     private Users usersIdusers;
     
-    private Collection<CartProduct> cartProductCollection;
+    private List<CartProduct> cartProductCollection;
 
     public Payment() {
     }
@@ -77,16 +78,16 @@ public class Payment implements Serializable {
         return usersIdusers;
     }
 
-    public void setUsersIdusers(Users usersIdusers) {
-        this.usersIdusers = usersIdusers;
-    }
-
-    public Collection<CartProduct> getCartProductCollection() {
+    public List<CartProduct> getCartProductCollection() {
         return cartProductCollection;
     }
 
-    public void setCartProductCollection(Collection<CartProduct> cartProductCollection) {
+    public void setCartProductCollection(List<CartProduct> cartProductCollection) {
         this.cartProductCollection = cartProductCollection;
+    }
+
+    public void setUsersIdusers(Users usersIdusers) {
+        this.usersIdusers = usersIdusers;
     }
 
 }

@@ -6,15 +6,17 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Date;
+import java.sql.Date;
+//import java.util.Date;
+
+import java.util.List;
 
 /**
  *
  * @author Bakar M.M.R
  */
 
-public class Users implements Serializable {
+public class Users {
 
     private int idusers;
 
@@ -38,24 +40,11 @@ public class Users implements Serializable {
 
     private int userZip;
 
-    private Collection<Payment> paymentCollection;
+    private List<Payment> paymentCollection;
 
-    private Collection<CartProduct> cartProductCollection;
+    private List<CartProduct> cartProductCollection;
 
     public Users() {
-    }
-
-    public Users(int idusers) {
-        this.idusers = idusers;
-    }
-
-    public Users(int idusers, String userName, String userPassword, String userEmail, int userSsn, Date userRegdate) {
-        this.idusers = idusers;
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userEmail = userEmail;
-        this.userSsn = userSsn;
-        this.userRegdate = userRegdate;
     }
 
     public int getIdusers() {
@@ -146,19 +135,20 @@ public class Users implements Serializable {
         this.userZip = userZip;
     }
 
-    public Collection<Payment> getPaymentCollection() {
+    public List<Payment> getPaymentCollection() {
         return paymentCollection;
     }
 
-    public void setPaymentCollection(Collection<Payment> paymentCollection) {
+    public void setPaymentCollection(List<Payment> paymentCollection) {
         this.paymentCollection = paymentCollection;
     }
 
-    public Collection<CartProduct> getCartProductCollection() {
+    public List<CartProduct> getCartProductCollection() {
         return cartProductCollection;
     }
 
-    public void setCartProductCollection(Collection<CartProduct> cartProductCollection) {
+    public void setCartProductCollection(List<CartProduct> cartProductCollection) {
         this.cartProductCollection = cartProductCollection;
     }
+
 }

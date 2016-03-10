@@ -6,8 +6,10 @@
 package entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.Collection;
-import java.util.Date;
+//import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -41,7 +43,7 @@ public class Product implements Serializable {
   
     private Categories categories;
 
-    private Collection<CartProduct> cartProductCollection;
+    private List<CartProduct> cartProductCollection;
 
     public Product() {
     }
@@ -163,12 +165,13 @@ public class Product implements Serializable {
         this.categories = categories;
     }
 
-    public Collection<CartProduct> getCartProductCollection() {
+    public List<CartProduct> getCartProductCollection() {
         return cartProductCollection;
     }
 
-    public void setCartProductCollection(Collection<CartProduct> cartProductCollection) {
+    public void setCartProductCollection(List<CartProduct> cartProductCollection) {
         this.cartProductCollection = cartProductCollection;
     }
+
 
 }
