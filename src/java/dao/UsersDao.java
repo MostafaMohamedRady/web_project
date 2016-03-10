@@ -180,13 +180,14 @@ public class UsersDao implements DoaInterface<Users> {
 
     public Users login(String mail,String pass)
      {
-         user=new Users();
+         user=null;
         try {
             statment = DBconnect.getInstance().getconn().prepareStatement("select * from users where user_email=? and user_password=?");
             statment.setString(1, mail);
             statment.setString(2, pass);
             ResultSet result = statment.executeQuery();
             if (result.next()) {
+                user=new Users();
                 user.setIdusers(result.getInt("idusers"));
                 user.setUserName(result.getString("user_name"));
                 user.setUserPassword(result.getString("user_password"));

@@ -51,7 +51,7 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Users user=new Users();
+        Users user=null;
         String mail=request.getParameter("userEmail");
         String pass=request.getParameter("userPassword");
        
