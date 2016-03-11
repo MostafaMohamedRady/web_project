@@ -55,12 +55,12 @@ public class LoginController extends HttpServlet {
         String mail=request.getParameter("userEmail");
         String pass=request.getParameter("userPassword");
        
-        System.out.println(request.getParameter("userEmail"));
-        System.out.println(request.getParameter("userPassword"));
-        
+        user.setUserEmail(request.getParameter("userEmail"));
+        user.setUserPassword(request.getParameter("userPassword"));
+       
         UsersDao userDao = new UsersDao();
-        user = userDao.login(user);
-        if (user!=null) {
+        Users check = userDao.login(user);
+        if (check !=null) {
             HttpSession session=request.getSession(true);
             session.setAttribute("user", user);
             System.out.println(user.getUserEmail()+"/"+user.getUserName());

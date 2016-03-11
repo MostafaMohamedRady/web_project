@@ -28,11 +28,12 @@ public class UsersDao implements DoaInterface<Users> {
     @Override
     public int insert(Users obj) {
         int check=1;
-        boolean checkName=chechMail(obj.getUserEmail());
-        boolean checkMail=checkName(obj.getUserName());
-        if (checkName==true)
+        boolean checkMail=chechMail(obj.getUserEmail());// true if found
+        boolean checkName=checkName(obj.getUserName());
+        boolean checkSSN=checkSSN(obj.getUserSsn());
+        if (!checkName && !checkMail && !checkSSN )
                 { try {
-            PreparedStatement pst=DBconnect.getInstance().getconn().prepareStatement("INSERT INTO USER_FORM VALUES (?,?,?,?,?,?)");
+            PreparedStatement pst=DBconnect.getInstance().getconn().prepareStatement("INSERT INTO users (user_name,user_password,user_email,user_ssn,user_charge) VALUES (?,?,?,?,?)");
             
             pst.setString(1,obj.getUserName());
             pst.setString(2,obj.getUserPassword());
@@ -40,15 +41,16 @@ public class UsersDao implements DoaInterface<Users> {
             pst.setInt(4,obj.getUserSsn());
             pst.setFloat(5,obj.getUserCharge());
           //  pst.setFloat(7,salary);
-             ResultSet executeQuery =pst.executeQuery();
+            pst.executeQuery();
              System.out.println("dao.UsersDao.insert()");
              
         } 
                 catch (SQLException ex) {
             Logger.getLogger(UsersDao.class.getName()).log(Level.SEVERE, null, ex);
-        }}
-        else
-        {check=0;}
+        }
+                check=1;}
+       else
+       {check=0;}
         
         return check;
     }
@@ -152,7 +154,7 @@ public class UsersDao implements DoaInterface<Users> {
     
     public boolean chechMail(String mail)
      {
-         boolean ch=false;
+         boolean ch=true;
          user=new Users();
         try {
             statment = DBconnect.getInstance().getconn().prepareStatement("select * from users where user_email=?");
@@ -185,7 +187,7 @@ public class UsersDao implements DoaInterface<Users> {
      }
     public boolean checkName(String name)
      {
-         boolean ch=false;
+         boolean ch=true;
          user=new Users();
         try {
             statment = DBconnect.getInstance().getconn().prepareStatement("select * from users where user_name=?");
@@ -218,27 +220,27 @@ public class UsersDao implements DoaInterface<Users> {
      }
 
     public Users login(Users obj)
-     {      Users u=null;
+     {     Users user=null;
                 try {
  
-                PreparedStatement pst=DBconnect.getInstance().getconn().prepareStatement("SELECT * FROM USER_FORM WHERE user_name=? AND user_password=?");
-                pst.setString(1,obj.getUserName());
+                PreparedStatement pst=DBconnect.getInstance().getconn().prepareStatement("SELECT * FROM users WHERE user_email=? AND user_password=?");
+                pst.setString(1,obj.getUserEmail());
                 pst.setString(2,obj.getUserPassword());
                 ResultSet rs;
                 
                     rs = pst.executeQuery();
                     if(rs.next())
                     {
-                        u=new Users();
-                        u.setUserName(rs.getString("user_name"));
-                        u.setUserEmail(rs.getString("user_email"));
-                        u.setUserPassword(rs.getString("user_password"));
+                        user=new Users();
+                        user.setUserEmail(rs.getString("user_email"));
+                        user.setUserPassword(rs.getString("user_password"));
+//                        
 
                     }    
                 } catch (SQLException ex) {
             Logger.getLogger(UsersDao.class.getName()).log(Level.SEVERE, null, ex);
                 }
-      return u;
+      return user;
      }
                  
                    
@@ -260,4 +262,38 @@ public class UsersDao implements DoaInterface<Users> {
 //                user.setUserZip(result.getInt("user_zip"));
 //                user.setUserSsn(result.getInt("user_ssn"));               
 //            }
+
+    private boolean checkSSN(int userSsn) {
+        
+    boolean ch=true;
+         user=new Users();
+        try {
+            statment = DBconnect.getInstance().getconn().prepareStatement("select * from users where user_ssn=?");
+            statment.setInt(1, userSsn);
+            ResultSet result = statment.executeQuery();
+            if (result.next()) {
+                user.setIdusers(result.getInt("idusers"));
+                user.setUserName(result.getString("user_name"));
+                user.setUserPassword(result.getString("user_password"));
+                user.setUserEmail(result.getString("user_email"));
+                user.setUserAddress(result.getString("user_address"));
+                user.setUserMobile(result.getString("user_mobile"));
+                user.setUserCharge(result.getFloat("user_charge"));
+                user.setUserRegdate(result.getDate("user_regdate"));
+                user.setUserJob(result.getString("user_job"));
+                user.setUserZip(result.getInt("user_zip"));
+                user.setUserSsn(result.getInt("user_ssn"));
+                
+                ch=true;
+            }
+            else
+            {
+                ch=false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+        return ch;         
+     }
 }
