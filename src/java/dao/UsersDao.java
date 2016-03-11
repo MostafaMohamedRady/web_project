@@ -27,8 +27,11 @@ public class UsersDao implements DoaInterface<Users> {
 
     @Override
     public int insert(Users obj) {
-        int check = 0;
-        try {
+        int check=1;
+        boolean checkName=chechMail(obj.getUserEmail());
+        boolean checkMail=checkName(obj.getUserName());
+        if (checkName==true)
+                { try {
             PreparedStatement pst=DBconnect.getInstance().getconn().prepareStatement("INSERT INTO USER_FORM VALUES (?,?,?,?,?,?)");
             
             pst.setString(1,obj.getUserName());
@@ -38,9 +41,15 @@ public class UsersDao implements DoaInterface<Users> {
             pst.setFloat(5,obj.getUserCharge());
           //  pst.setFloat(7,salary);
              ResultSet executeQuery =pst.executeQuery();
-        } catch (SQLException ex) {
+             System.out.println("dao.UsersDao.insert()");
+             
+        } 
+                catch (SQLException ex) {
             Logger.getLogger(UsersDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }}
+        else
+        {check=0;}
+        
         return check;
     }
 
@@ -174,14 +183,13 @@ public class UsersDao implements DoaInterface<Users> {
          
         return ch;         
      }
-
-    public Users login(String mail,String pass)
+    public boolean checkName(String name)
      {
+         boolean ch=false;
          user=new Users();
         try {
-            statment = DBconnect.getInstance().getconn().prepareStatement("select * from users where user_email=? and user_password=?");
-            statment.setString(1, mail);
-            statment.setString(2, pass);
+            statment = DBconnect.getInstance().getconn().prepareStatement("select * from users where user_name=?");
+            statment.setString(1, name);
             ResultSet result = statment.executeQuery();
             if (result.next()) {
                 user.setIdusers(result.getInt("idusers"));
@@ -194,12 +202,62 @@ public class UsersDao implements DoaInterface<Users> {
                 user.setUserRegdate(result.getDate("user_regdate"));
                 user.setUserJob(result.getString("user_job"));
                 user.setUserZip(result.getInt("user_zip"));
-                user.setUserSsn(result.getInt("user_ssn"));               
+                user.setUserSsn(result.getInt("user_ssn"));
+                
+                ch=true;
+            }
+            else
+            {
+                ch=false;
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsersDao.class.getName()).log(Level.SEVERE, null, ex);
         }
          
-        return user;         
+        return ch;         
      }
+
+    public Users login(Users obj)
+     {      Users u=null;
+                try {
+ 
+                PreparedStatement pst=DBconnect.getInstance().getconn().prepareStatement("SELECT * FROM USER_FORM WHERE user_name=? AND user_password=?");
+                pst.setString(1,obj.getUserName());
+                pst.setString(2,obj.getUserPassword());
+                ResultSet rs;
+                
+                    rs = pst.executeQuery();
+                    if(rs.next())
+                    {
+                        u=new Users();
+                        u.setUserName(rs.getString("user_name"));
+                        u.setUserEmail(rs.getString("user_email"));
+                        u.setUserPassword(rs.getString("user_password"));
+
+                    }    
+                } catch (SQLException ex) {
+            Logger.getLogger(UsersDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+      return u;
+     }
+                 
+                   
+                    
+//            statment = DBconnect.getInstance().getconn().prepareStatement("select * from users where user_email=? and user_password=?");
+//            statment.setString(1, mail);
+//            statment.setString(2, pass);
+//            ResultSet result = statment.executeQuery();
+//            if (result.next()) {
+//                user.setIdusers(result.getInt("idusers"));
+//                user.setUserName(result.getString("user_name"));
+//                user.setUserPassword(result.getString("user_password"));
+//                user.setUserEmail(result.getString("user_email"));
+//                user.setUserAddress(result.getString("user_address"));
+//                user.setUserMobile(result.getString("user_mobile"));
+//                user.setUserCharge(result.getFloat("user_charge"));
+//                user.setUserRegdate(result.getDate("user_regdate"));
+//                user.setUserJob(result.getString("user_job"));
+//                user.setUserZip(result.getInt("user_zip"));
+//                user.setUserSsn(result.getInt("user_ssn"));               
+//            }
 }
