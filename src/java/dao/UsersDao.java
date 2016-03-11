@@ -234,7 +234,9 @@ public class UsersDao implements DoaInterface<Users> {
                         user=new Users();
                         user.setUserEmail(rs.getString("user_email"));
                         user.setUserPassword(rs.getString("user_password"));
-//                        
+                        user.setUserName(rs.getString("user_name"));
+                        user.setUserSsn(rs.getInt("user_ssn"));
+                        user.setUserCharge(rs.getFloat("user_charge"));
 
                     }    
                 } catch (SQLException ex) {
