@@ -237,7 +237,7 @@ new UISearch(document.getElementById('sb-search'));
                         </div>
                         <div>
                             <span>Email Address</span>
-                            <input type="email" name="userEmail" id="userEmail" onblur="checkEmail()" > 
+                            <input type="text" name="userEmail" id="userEmail" onblur="checkEmail()" required > 
                             <font color="red" id="error_userEmail" ></font>
                         </div>
                         <div>
@@ -265,7 +265,7 @@ new UISearch(document.getElementById('sb-search'));
                         </div>
                         
                        
-                        <input type="submit" value="submit" id="submitLogin" onclick="return check()">
+                        <input type="submit" value="submit" id="submitLogin" onclick="return check()" required >
                     </div>
                     <div class="clearfix"> </div>
                 </form>

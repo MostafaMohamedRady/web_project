@@ -26,21 +26,18 @@ public class UsersDao implements DoaInterface<Users> {
     Users user;
 
     @Override
-    public int insert(Users bean) {
+    public int insert(Users obj) {
         int check = 0;
         try {
-            statment = DBconnect.getInstance().getconn().prepareStatement("insert into Users"
-                    + "(user_name,user_password,user_email,user_ssn,user_charge)"
-                    + " values (?,?,?,?,?)");
-            statment.setString(1, bean.getUserName());
-            statment.setString(2, bean.getUserPassword());
-            statment.setString(3, bean.getUserEmail());
-            statment.setInt(4, bean.getUserSsn());
-            statment.setFloat(5, bean.getUserCharge());
-            statment.setDate(6,  bean.getUserRegdate());
-            check = statment.executeUpdate();
+            PreparedStatement pst=DBconnect.getInstance().getconn().prepareStatement("INSERT INTO USER_FORM VALUES (?,?,?,?,?,?)");
             
-            System.out.println("insert"+check);
+            pst.setString(1,obj.getUserName());
+            pst.setString(2,obj.getUserPassword());
+            pst.setString(3,obj.getUserEmail());
+            pst.setInt(4,obj.getUserSsn());
+            pst.setFloat(5,obj.getUserCharge());
+          //  pst.setFloat(7,salary);
+             ResultSet executeQuery =pst.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(UsersDao.class.getName()).log(Level.SEVERE, null, ex);
         }
