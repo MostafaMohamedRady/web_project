@@ -41,7 +41,7 @@ public class UsersDao implements DoaInterface<Users> {
             pst.setInt(4,obj.getUserSsn());
             pst.setFloat(5,obj.getUserCharge());
           //  pst.setFloat(7,salary);
-            pst.executeQuery();
+            pst.executeUpdate();
              System.out.println("dao.UsersDao.insert()");
              
         } 
