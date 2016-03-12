@@ -14,7 +14,6 @@ import java.util.List;
  */
 
 public class Categories {
-    private static final long serialVersionUID = 1L;
 
     public List<Product> getProductCollection() {
         return productCollection;

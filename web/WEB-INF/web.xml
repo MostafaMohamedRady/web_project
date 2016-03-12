@@ -16,6 +16,10 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>controller.LoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddToCardController</servlet-name>
+        <servlet-class>controller.AddToCardController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/RegisterController</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCardController</servlet-name>
+        <url-pattern>/AddToCardController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

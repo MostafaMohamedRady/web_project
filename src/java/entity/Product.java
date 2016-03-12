@@ -6,9 +6,9 @@
 package entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+//import java.sql.Date;
 import java.util.Collection;
-//import java.util.Date;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,7 +17,9 @@ import java.util.List;
  */
 public class Product implements Serializable {
 
-    protected ProductPK productPK;
+    private int idproduct;
+
+    private int categoriesIdcategory;
     
     private String productName;
    
@@ -48,27 +50,23 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(ProductPK productPK) {
-        this.productPK = productPK;
+    public int getIdproduct() {
+        return idproduct;
     }
 
-    public Product(ProductPK productPK, String productName) {
-        this.productPK = productPK;
-        this.productName = productName;
+    public void setIdproduct(int idproduct) {
+        this.idproduct = idproduct;
     }
 
-    public Product(int idproduct, int categoriesIdcategory) {
-        this.productPK = new ProductPK(idproduct, categoriesIdcategory);
+    public int getCategoriesIdcategory() {
+        return categoriesIdcategory;
     }
 
-    public ProductPK getProductPK() {
-        return productPK;
+    public void setCategoriesIdcategory(int categoriesIdcategory) {
+        this.categoriesIdcategory = categoriesIdcategory;
     }
 
-    public void setProductPK(ProductPK productPK) {
-        this.productPK = productPK;
-    }
-
+   
     public String getProductName() {
         return productName;
     }
