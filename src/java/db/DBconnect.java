@@ -34,11 +34,14 @@ public class DBconnect {
         try {
 
             String url = "jdbc:mysql://localhost:3306/web_project";
-            Properties prop=new Properties();
-            prop.setProperty("user","root");
-            prop.setProperty("password","");
-            Driver d=new com.mysql.jdbc.Driver();
-           conn = (Connection) d.connect(url,prop);
+            Properties prop = new Properties();
+            prop.setProperty("user", "root");
+            prop.setProperty("password", "");
+            System.out.println("jdbc");
+            Driver d = new com.mysql.jdbc.Driver();
+            System.out.println("driver");
+
+            conn = (Connection) d.connect(url, prop);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

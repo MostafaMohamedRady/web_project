@@ -13,7 +13,6 @@ import java.util.Date;
  */
 public class CartProduct {
 
-
     private int idcartProduct;
 
     private int cartProductMount;
@@ -25,6 +24,16 @@ public class CartProduct {
     private Product product;
 
     private Users usersIdusers;
+
+    private float totalProduct;
+
+    public float getTotalProduct() {
+        return totalProduct;
+    }
+
+    public void setTotalProduct(float totalProduct) {
+        this.totalProduct = totalProduct;
+    }
 
     public CartProduct() {
     }

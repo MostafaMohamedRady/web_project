@@ -19,14 +19,15 @@ import java.util.logging.Logger;
  *
  * @author Bakar M.M.R
  */
-public class CategoriesDao implements DoaInterface<Categories>{
+public class CategoriesDao implements DoaInterface<Categories> {
 
     PreparedStatement statement;
     Categories cat;
+
     @Override
     public int insert(Categories bean) {
         //cat = (Categories) bean;
-        int check=0;
+        int check = 0;
         try {
             statement = DBconnect.getInstance().getconn().prepareStatement("insert into categories (idcategory, category_name) values(?,?)");
             statement.setInt(1, bean.getIdcategory());
@@ -41,8 +42,8 @@ public class CategoriesDao implements DoaInterface<Categories>{
 
     @Override
     public int update(Categories bean) {
-       int check=0;
-       //cat = (Categories) bean;    
+        int check = 0;
+        //cat = (Categories) bean;    
         try {
             statement = DBconnect.getInstance().getconn().prepareStatement("update categories set "
                     + "category_name = ? where idcategory = ?");
@@ -52,7 +53,7 @@ public class CategoriesDao implements DoaInterface<Categories>{
         } catch (SQLException ex) {
             Logger.getLogger(CategoriesDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-       return check;
+        return check;
     }
 
     @Override
@@ -76,10 +77,9 @@ public class CategoriesDao implements DoaInterface<Categories>{
             statement = DBconnect.getInstance().getconn().prepareStatement("select * from categories where idcategory = ?");
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
-               cat.setCategoryName(rs.getString("category_name"));
-               cat.setIdcategory(rs.getInt("idcategory"));
+            while (rs.next()) {
+                cat.setCategoryName(rs.getString("category_name"));
+                cat.setIdcategory(rs.getInt("idcategory"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(CategoriesDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -94,10 +94,9 @@ public class CategoriesDao implements DoaInterface<Categories>{
             statement = DBconnect.getInstance().getconn().prepareStatement("select * from categories where category_name = ?");
             statement.setString(1, name);
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
-               cat.setCategoryName(rs.getString("category_name"));
-               cat.setIdcategory(rs.getInt("idcategory"));
+            while (rs.next()) {
+                cat.setCategoryName(rs.getString("category_name"));
+                cat.setIdcategory(rs.getInt("idcategory"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(CategoriesDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -105,18 +104,19 @@ public class CategoriesDao implements DoaInterface<Categories>{
         return cat;
     }
 
-
     @Override
-    public List<Categories> selectAll() {
+    public ArrayList<Categories> selectAll() {
         ArrayList<Categories> cats = new ArrayList<>();
+        ProductDao dao;
         try {
             statement = DBconnect.getInstance().getconn().prepareStatement("select * from categories");
             ResultSet rs = statement.executeQuery();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Categories cat = new Categories();
                 cat.setIdcategory(rs.getInt("idcategory"));
                 cat.setCategoryName(rs.getString("category_name"));
+                dao = new ProductDao();
+                cat.setProductCollection(dao.selectProductsByCategoryId(rs.getInt("idcategory")));
                 cats.add(cat);
             }
         } catch (SQLException ex) {

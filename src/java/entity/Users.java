@@ -30,7 +30,7 @@ public class Users {
 
     private String userMobile;
 
-    private int userSsn;
+    private long userSsn;
  
     private Float userCharge;
   
@@ -95,11 +95,11 @@ public class Users {
         this.userMobile = userMobile;
     }
 
-    public int getUserSsn() {
+      public long getUserSsn() {
         return userSsn;
     }
 
-    public void setUserSsn(int userSsn) {
+    public void setUserSsn(long userSsn) {
         this.userSsn = userSsn;
     }
 

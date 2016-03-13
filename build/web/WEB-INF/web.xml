@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <filter>
-        <filter-name>header</filter-name>
-        <filter-class>filter.header</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>header</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
     <servlet>
         <servlet-name>RegisterController</servlet-name>
         <servlet-class>controller.RegisterController</servlet-class>
@@ -16,6 +8,38 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>controller.LoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IndexController</servlet-name>
+        <servlet-class>controller.IndexController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminAllCategoriesController</servlet-name>
+        <servlet-class>controller.AdminAllCategoriesController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminAllProductsController</servlet-name>
+        <servlet-class>controller.AdminAllProductsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminHomeController</servlet-name>
+        <servlet-class>controller.AdminHomeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminLoginController</servlet-name>
+        <servlet-class>controller.AdminLoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SingleProductPageController</servlet-name>
+        <servlet-class>controller.SingleProductPageController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateProfileController</servlet-name>
+        <servlet-class>controller.UpdateProfileController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndexController</servlet-name>
+        <url-pattern>/IndexController</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>AddToCardController</servlet-name>
         <servlet-class>controller.AddToCardController</servlet-class>
@@ -32,12 +56,36 @@
         <servlet-name>AddToCardController</servlet-name>
         <url-pattern>/AddToCardController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminAllCategoriesController</servlet-name>
+        <url-pattern>/AdminAllCategoriesController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminAllProductsController</servlet-name>
+        <url-pattern>/AdminAllProductsController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminHomeController</servlet-name>
+        <url-pattern>/AdminHomeController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminLoginController</servlet-name>
+        <url-pattern>/AdminLoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SingleProductPageController</servlet-name>
+        <url-pattern>/SingleProductPageController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateProfileController</servlet-name>
+        <url-pattern>/UpdateProfileController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>IndexController</welcome-file>
     </welcome-file-list>
 </web-app>

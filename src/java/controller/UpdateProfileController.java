@@ -5,14 +5,10 @@
  */
 package controller;
 
-import dao.CategoriesDao;
-import dao.ProductDao;
-import entity.Categories;
-import entity.Product;
+import dao.UsersDao;
+import entity.Users;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Ehab
+ * @author Aya
  */
-public class IndexController extends HttpServlet {
+public class UpdateProfileController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,37 +37,62 @@ public class IndexController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet IndexController</title>");
+            out.println("<title>Servlet UpdateProfileController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet IndexController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UpdateProfileController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        ProductDao pDao = new ProductDao();
-        CategoriesDao cDao = new CategoriesDao();
-        ArrayList<Categories> cList = cDao.selectAll();
-
-     /*   for (int i = 0; i < cList.size(); i++) {
-            cList.get(i).setProductCollection(pDao.selectProductsByCategoryId(i + 1));
-        }*/
-        
-        request.setAttribute("categoryList", cList);
-        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-        rd.forward(request, response);
-
+        processRequest(request, response);
     }
 
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       // Users user=new Users();
+        Users user=(Users) request.getSession().getAttribute("email");
+       // user.setUserEmail(request.getParameter("email"));
+        user.setUserCharge(Float.valueOf((request.getParameter("userCharge"))));
+        user.setUserAddress(request.getParameter("userAdderess"));
+        user.setUserJob(request.getParameter("userJob"));
+        user.setUserMobile(request.getParameter("userMobile"));
+        user.setUserZip(Integer.valueOf(request.getParameter("userZip")));
+        
+        UsersDao userDao = new UsersDao();
+        
+        int update = userDao.update(user);
+         if (update ==0) {
+      //      if(checkMail)
+            response.sendRedirect("profile.jsp");
+
+        } else {
+            //response.sendRedirect("login.jsp");
+            response.sendRedirect("products.jsp");
+        }
+
     }
 
     /**

@@ -54,17 +54,20 @@ public class LoginController extends HttpServlet {
         Users user=null;
         String mail=request.getParameter("userEmail");
         String pass=request.getParameter("userPassword");
-       
-        System.out.println(request.getParameter("userEmail"));
-        System.out.println(request.getParameter("userPassword"));
-        
+/*
+ Users user=new Users();    
+        user.setUserEmail(request.getParameter("userEmail"));
+        user.setUserPassword(request.getParameter("userPassword"));
+        UsersDao userDao = new UsersDao();
+        Users check = userDao.login(user);
+*/
         UsersDao userDao = new UsersDao();
         user = userDao.login(mail, pass);
         if (user!=null) {
             HttpSession session=request.getSession(true);
-            session.setAttribute("users", user);
+            session.setAttribute("user", user);
             System.out.println(user.getUserEmail()+"/"+user.getUserName());
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("profile.jsp");
         } else {
             response.sendRedirect("login.jsp");
         }
